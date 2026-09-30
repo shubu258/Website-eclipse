@@ -4,11 +4,13 @@ import { useState } from "react";
 import { projects, type Category } from "./projects";
 import TiltCard from "./TiltCard";
 
-const filters: ("All" | Category)[] = ["All", "Blockchain development", "AI development", "Custom software", "SaaS platforms"];
+const allCategories: Category[] = ["Blockchain development", "AI development", "Custom software", "SaaS platforms"];
+// only offer filters that have work behind them
+const filters: ("All" | Category)[] = ["All", ...allCategories.filter((c) => projects.some((p) => p.categories.includes(c)))];
 
 export default function PortfolioGrid() {
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");
-  const shown = filter === "All" ? projects : projects.filter((p) => p.category === filter);
+  const shown = filter === "All" ? projects : projects.filter((p) => p.categories.includes(filter));
 
   return (
     <section className="work pf-work">
@@ -16,7 +18,7 @@ export default function PortfolioGrid() {
         <div className="pf-bar">
           <div className="pf-filters" role="tablist" aria-label="Filter projects">
             {filters.map((f) => {
-              const count = f === "All" ? projects.length : projects.filter((p) => p.category === f).length;
+              const count = f === "All" ? projects.length : projects.filter((p) => p.categories.includes(f)).length;
               return (
                 <button key={f} role="tab" aria-selected={filter === f} className={filter === f ? "on" : ""} onClick={() => setFilter(f)}>
                   {f}

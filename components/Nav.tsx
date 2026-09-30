@@ -29,8 +29,9 @@ export default function Nav() {
     const onScroll = () => {
       const y = window.scrollY;
       // turn solid once past the dark header of the current page
-      const header = document.querySelector<HTMLElement>(".hero, .page-hero");
-      setScrolled(y > (header ? header.offsetHeight - 80 : 0));
+      const header = document.querySelector<HTMLElement>(".hero, .page-hero, .cs-hero");
+      // light headers (data-nav="solid") need the solid nav from the very top
+      setScrolled(!header ? y > 0 : header.dataset.nav === "solid" || y > header.offsetHeight - 80);
       setHidden(y > 400 && y > lastY.current + 4);
       if (y < lastY.current - 4) setHidden(false);
       lastY.current = y;

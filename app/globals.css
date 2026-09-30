@@ -3139,6 +3139,547 @@ body::after {
     0 30px 40px -20px rgba(14, 13, 12, 0.4);
 }
 
+/* art: chainhound — drawn in the product's own palette */
+.art-chainhound {
+  background: #f7f2e5;
+  color: #1c2a1e;
+}
+
+.art-chainhound .ch-grid {
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(28, 42, 30, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 42, 30, 0.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.art-chainhound .ch-trail {
+  inset: 6% 4%;
+  width: 92%;
+  height: 88%;
+  overflow: visible;
+}
+
+.art-chainhound .ch-trail path {
+  fill: none;
+  stroke: #1c2a1e;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 700;
+  animation: ch-draw 3.2s var(--ease) infinite alternate;
+}
+
+.art-chainhound .ch-trail path.dash {
+  stroke: #5e7b4c;
+  stroke-width: 1.6;
+  stroke-dasharray: 5 7;
+  animation: none;
+}
+
+.art-chainhound .ch-trail circle {
+  fill: #fbf8f0;
+  stroke: #1c2a1e;
+  stroke-width: 2.5;
+}
+
+.art-chainhound .ch-trail circle.ghost {
+  stroke: #5e7b4c;
+  stroke-width: 1.6;
+}
+
+.art-chainhound .ch-trail circle.risk {
+  fill: #c15a28;
+  stroke: #a24a1f;
+  animation: ch-pulse 1.6s ease-in-out infinite;
+  transform-origin: 510px 120px;
+}
+
+@keyframes ch-draw {
+  from {
+    stroke-dashoffset: 700;
+  }
+  60%,
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ch-pulse {
+  50% {
+    transform: scale(1.18);
+  }
+}
+
+.art-chainhound .ch-console {
+  left: 7%;
+  bottom: 9%;
+  width: min(46%, 300px);
+  background: #fbf8f0;
+  border: 1px solid #ded2ae;
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: clamp(9px, 1vw, 12px);
+  box-shadow: 0 24px 40px -24px rgba(20, 39, 32, 0.45);
+  overflow: hidden;
+}
+
+.art-chainhound .ch-console-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 10px;
+  border-bottom: 1px solid #ded2ae;
+  background: #f7f2e5;
+}
+
+.art-chainhound .ch-console-bar i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d9695a;
+}
+.art-chainhound .ch-console-bar i:nth-child(2) {
+  background: #d9a441;
+}
+.art-chainhound .ch-console-bar i:nth-child(3) {
+  background: #7db26b;
+}
+
+.art-chainhound .ch-console-bar span {
+  margin-left: 6px;
+  color: #46503f;
+}
+
+.art-chainhound .ch-console p {
+  padding: 5px 10px;
+  color: #46503f;
+  white-space: nowrap;
+}
+
+.art-chainhound .ch-console p:last-child {
+  padding-bottom: 10px;
+}
+
+.art-chainhound .ch-console b {
+  color: #445c34;
+}
+
+.art-chainhound .ch-console em {
+  color: #c15a28;
+  font-style: normal;
+}
+
+.art-chainhound .ch-badge {
+  right: 7%;
+  top: 12%;
+  font-family: var(--mono);
+  font-size: clamp(10px, 1vw, 12px);
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: #142720;
+  color: #f7f2e5;
+  white-space: nowrap;
+}
+
+.art-chainhound .ch-badge b {
+  color: #e98a55;
+}
+
+.project-lines {
+  list-style: none;
+  counter-reset: pl;
+  margin-top: 10px;
+  display: grid;
+  gap: 4px;
+}
+
+.project-lines li {
+  counter-increment: pl;
+  display: flex;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.project-lines li::before {
+  content: "0" counter(pl);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--orange);
+  padding-top: 2px;
+  flex: none;
+}
+
+/* art: the wire desk — the product's newsprint palette */
+.art-wire {
+  background: #e9e3d4;
+  color: #121310;
+}
+
+.art-wire .wd-masthead {
+  left: 7%;
+  right: 7%;
+  top: 11%;
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-top: 1px solid #121310;
+  border-bottom: 1px solid #121310;
+  font-family: var(--mono);
+  font-size: clamp(8px, 0.8vw, 10px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.art-wire .wd-headline {
+  left: 7%;
+  top: 24%;
+  width: 54%;
+  font-family: Georgia, serif;
+  font-size: clamp(22px, 2.6vw, 38px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.art-wire .wd-headline em {
+  color: #0e5a36;
+}
+
+.art-wire .wd-card {
+  bottom: 12%;
+  width: 26%;
+  padding: 10px 12px 12px;
+  background: #fbf9f4;
+  border: 1px solid #d8d0bf;
+  border-radius: 6px;
+  box-shadow: 0 16px 30px -18px rgba(18, 19, 16, 0.45);
+  font-size: clamp(9px, 0.9vw, 12px);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 6px;
+}
+
+.art-wire .wd-card.c0 {
+  left: 7%;
+  rotate: -2deg;
+}
+.art-wire .wd-card.c1 {
+  left: 37%;
+}
+.art-wire .wd-card.c2 {
+  left: 67%;
+  rotate: 2deg;
+}
+
+.art-wire .wd-card small {
+  font-family: var(--mono);
+  color: #625e53;
+}
+
+.art-wire .wd-card i {
+  grid-column: 1 / -1;
+  height: 4px;
+  border-radius: 4px;
+  background: #e9e3d4;
+}
+
+.art-wire .wd-card i:last-child {
+  width: 65%;
+}
+
+.art-wire .wd-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 9px;
+  background: #0a66c2;
+}
+
+.art-wire .wd-icon.X {
+  background: #121310;
+}
+
+.art-wire .wd-icon.ig {
+  background: linear-gradient(135deg, #f9a825, #e1306c 55%, #7b3fe4);
+}
+
+.art-wire .wd-run {
+  right: 7%;
+  top: 27%;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 9px 14px;
+  border-radius: 4px;
+  background: #ff5a1f;
+  color: #fff;
+  font-size: clamp(10px, 1vw, 13px);
+  font-weight: 600;
+  box-shadow: 3px 3px 0 #121310;
+  white-space: nowrap;
+}
+
+.art-wire .wd-run span {
+  font-family: var(--mono);
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* art: karishava crm — the product's teal on clinical white */
+.art-karishava {
+  background: #18665f;
+}
+
+.art-karishava .kr-pipe {
+  left: 10%;
+  right: 10%;
+  top: 16%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* the track behind the stage dots */
+.art-karishava .kr-pipe::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.art-karishava .kr-pipe i {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #18665f;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+}
+
+.art-karishava .kr-pipe i.done {
+  background: #fff;
+  border-color: #fff;
+}
+
+.art-karishava .kr-pipe i.now {
+  border-color: #fff;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.18);
+}
+
+.art-karishava .kr-card {
+  left: 10%;
+  right: 22%;
+  top: 34%;
+  bottom: 12%;
+  padding: 5% 6%;
+  border-radius: 12px;
+  background: #f5f8fa;
+  box-shadow: 0 30px 50px -24px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 9%;
+}
+
+.art-karishava .kr-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.art-karishava .kr-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e0e7ff;
+  flex: none;
+}
+
+.art-karishava .kr-lines {
+  display: grid;
+  gap: 5px;
+  flex: 1;
+}
+
+.art-karishava .kr-lines b {
+  height: 7px;
+  width: 70%;
+  border-radius: 4px;
+  background: #1f2937;
+}
+
+.art-karishava .kr-lines b + b {
+  width: 45%;
+  background: #cbd5e1;
+}
+
+.art-karishava .kr-badge {
+  font-family: var(--mono);
+  font-size: clamp(8px, 0.75vw, 10px);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e0e7ff;
+  color: #4338ca;
+  white-space: nowrap;
+}
+
+.art-karishava .kr-row {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  gap: 8%;
+}
+
+.art-karishava .kr-row i {
+  height: 6px;
+  border-radius: 4px;
+  background: #cbd5e1;
+}
+
+.art-karishava .kr-row i + i {
+  background: #475569;
+}
+
+.art-karishava .kr-stat {
+  right: 7%;
+  top: 44%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+  display: grid;
+}
+
+.art-karishava .kr-stat small {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.art-karishava .kr-stat b {
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #111827;
+}
+
+/* art: atoz — the product's dark UI with its green */
+.art-atoz {
+  background: #111113;
+}
+
+.art-atoz .az-glow {
+  inset: 0;
+  background: radial-gradient(circle at 70% 20%, rgba(37, 182, 119, 0.22), transparent 55%);
+}
+
+.art-atoz .az-bars {
+  left: 8%;
+  right: 8%;
+  bottom: 12%;
+  height: 46%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.art-atoz .az-bars span {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 100%;
+  width: 11%;
+}
+
+.art-atoz .az-bars i {
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  background: #4a8af0;
+  opacity: 0.85;
+}
+
+.art-atoz .az-bars i + i {
+  background: #25b677;
+}
+
+.art-atoz .az-card {
+  left: 12%;
+  top: 12%;
+  width: 46%;
+  padding: 4% 5%;
+  border-radius: 12px;
+  background: #1a1c1f;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.7);
+  color: #e5e7eb;
+}
+
+.art-atoz .az-card small {
+  font-family: var(--mono);
+  font-size: clamp(8px, 0.8vw, 10px);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.art-atoz .az-card svg {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+}
+
+.art-atoz .az-card .line {
+  fill: none;
+  stroke: #25b677;
+  stroke-width: 2;
+}
+
+.art-atoz .az-card .fill {
+  fill: rgba(37, 182, 119, 0.14);
+}
+
+.art-atoz .az-split {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: clamp(9px, 0.85vw, 12px);
+  color: #9ca3af;
+}
+
+.art-atoz .az-split span:first-child b {
+  color: #4a8af0;
+}
+
+.art-atoz .az-split b {
+  color: #25b677;
+  font-size: 8px;
+  vertical-align: middle;
+}
+
+/* a lone project spans the grid instead of leaving an empty column */
+.work-grid > .project:only-child {
+  grid-column: 1 / -1;
+}
+
+.work-grid > .project:only-child .project-art {
+  aspect-ratio: 21 / 9;
+}
+
+@media (max-width: 860px) {
+  .work-grid > .project:only-child .project-art {
+    aspect-ratio: 4 / 3;
+  }
+}
+
 @media (max-width: 860px) {
   .t-grid {
     grid-template-columns: 1fr;

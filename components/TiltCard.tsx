@@ -27,7 +27,7 @@ export default function TiltCard({ p, reveal = true }: { p: Project; reveal?: bo
 
   return (
     <Link
-      href="/portfolio"
+      href={`/portfolio/${p.slug}`}
       className={`project ${reveal ? "reveal" : "fade-up"}`}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
@@ -40,7 +40,11 @@ export default function TiltCard({ p, reveal = true }: { p: Project; reveal?: bo
         <div className="project-meta">
           <div>
             <h3>{p.title}</h3>
-            <p>{p.desc}</p>
+            <ol className="project-lines">
+              {p.lines.map((l) => (
+                <li key={l}>{l}</li>
+              ))}
+            </ol>
           </div>
           <div className="project-result">
             <b>{p.result}</b>

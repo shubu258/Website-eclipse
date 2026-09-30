@@ -22,10 +22,6 @@ export default function PortfolioPage() {
           line1="Work that"
           line2={<span className="serif">outshines.</span>}
           lede="A selection of blockchain, AI, custom software and SaaS products we've designed, built and shipped with our clients."
-          stats={[
-            { label: "Products shipped", value: "120+" },
-            { label: "Industries", value: "14" },
-          ]}
         />
 
         <PortfolioGrid />

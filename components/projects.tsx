@@ -71,6 +71,44 @@ export const projects: Project[] = [
     ),
   },
   {
+    slug: "agentrail",
+    categories: ["AI development", "Blockchain development"],
+    chip: "AI × Blockchain",
+    title: "AgentRail",
+    desc: "On-chain permissions for AI agents, published as ENS names",
+    lines: [
+      "The owner sets what an agent may pay, call and spend.",
+      "Solana, Hedera and Base programs check every action it tries.",
+      "A tricked agent is refused on chain, and no funds move.",
+    ],
+    result: "3",
+    resultLabel: "chains, one mandate",
+    year: "2026",
+    art: (
+      <div className="project-art art-agentrail">
+        <div className="layer ar-rails" data-depth="8" />
+        <div className="layer ar-name" data-depth="26">
+          <small>Mandate</small>
+          <b>databot.agentrail.eth</b>
+        </div>
+        <div className="layer ar-gate" data-depth="46">
+          <p>
+            Transfer → feed <b>allowed</b>
+          </p>
+          <p>
+            SetAuthority <em>6006</em>
+          </p>
+          <p>
+            3 USDC, cap 2 <em>6007</em>
+          </p>
+        </div>
+        <div className="layer ar-stamp" data-depth="64">
+          refused <b>0 moved</b>
+        </div>
+      </div>
+    ),
+  },
+  {
     slug: "the-wire-desk",
     categories: ["AI development", "SaaS platforms"],
     chip: "AI × SaaS",
@@ -109,6 +147,40 @@ export const projects: Project[] = [
         ))}
         <div className="layer wd-run" data-depth="70">
           Run the wire <span>↵ 3 variants</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    slug: "aurelia",
+    categories: ["Custom software"],
+    chip: "E-commerce · 3D",
+    title: "Aurelia",
+    desc: "A fine jewellery store with real-time 3D pieces and a ring designer",
+    lines: [
+      "Every piece can be rotated in 3D before it's made.",
+      "Swap metal and stone, and the model changes instantly.",
+      "Design a ring in five steps, with the price always in view.",
+    ],
+    result: "3D",
+    resultLabel: "every piece, live",
+    year: "2026",
+    url: "https://ecommerce-website-beta-lake.vercel.app/",
+    art: (
+      <div className="project-art art-aurelia">
+        <div className="layer au-glow" data-depth="8" />
+        <div className="layer au-ring" data-depth="30">
+          <i className="au-band" />
+          <i className="au-stone" />
+        </div>
+        <div className="layer au-price" data-depth="48">
+          <small>Aurora Solitaire · 1.0 ct</small>
+          <b>₹1,24,000</b>
+        </div>
+        <div className="layer au-swatches" data-depth="64">
+          {["#d9b35f", "#e3a592", "#d5d8de", "#fff", "#3b63d6", "#23a06b"].map((c, i) => (
+            <i key={c} className={i > 2 ? "stone" : ""} style={{ background: c }} />
+          ))}
         </div>
       </div>
     ),

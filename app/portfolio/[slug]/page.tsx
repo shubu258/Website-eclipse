@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CaseStudyView from "@/components/case-studies/CaseStudyView";
+import { agentrail } from "@/components/case-studies/agentrail";
 import { atoz } from "@/components/case-studies/atoz";
+import { aurelia } from "@/components/case-studies/aurelia";
 import { chainhound } from "@/components/case-studies/chainhound";
 import { karishava } from "@/components/case-studies/karishava";
 import type { CaseStudy } from "@/components/case-studies/types";
@@ -11,7 +13,7 @@ import Nav from "@/components/Nav";
 import { projects } from "@/components/projects";
 import RevealObserver from "@/components/RevealObserver";
 
-const caseStudies: CaseStudy[] = [chainhound, wiredesk, karishava, atoz];
+const caseStudies: CaseStudy[] = [chainhound, agentrail, wiredesk, aurelia, karishava, atoz];
 
 export const dynamicParams = false;
 

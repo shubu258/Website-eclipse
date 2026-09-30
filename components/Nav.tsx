@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { BOOK_CALL_HREF } from "./contact";
 import { Chevron } from "./Icons";
 
 const joinLinks = [
-  { href: "/careers", title: "Careers", desc: "Full-time roles on the core team" },
+  { href: "/careers", title: "Careers", desc: "How we work and hire" },
   { href: "/careers", title: "Talent network", desc: "Contract work for senior specialists" },
   { href: "/#book", title: "Partner program", desc: "Agencies and consultancies we build with" },
 ];
@@ -15,7 +16,7 @@ const mobileLinks = [
   { href: "/#services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/careers", label: "Join Us" },
-  { href: "/#book", label: "Book a call" },
+  { href: BOOK_CALL_HREF, label: "Book a call" },
 ];
 
 export default function Nav() {
@@ -93,9 +94,9 @@ export default function Nav() {
               <Link href="/portfolio">Portfolio</Link>
             </li>
             <li>
-              <Link href="/#book" className="nav-cta">
+              <a href={BOOK_CALL_HREF} className="nav-cta">
                 Book a call
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>

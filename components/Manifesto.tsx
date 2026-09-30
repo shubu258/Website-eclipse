@@ -5,16 +5,8 @@ import { useEffect, useRef } from "react";
 const TEXT =
   "We're a small, senior team that plugs straight into yours. No six-month hiring cycles, no bloated agency retainers, just engineers who own the outcome from first commit to *production* and stay for what comes after.";
 
-const stats = [
-  { value: 120, suffix: "+", label: "Products shipped across four continents" },
-  { value: 9, suffix: "d", label: "Median time from first call to first commit" },
-  { value: 97, suffix: "%", label: "Of clients extend beyond the first engagement" },
-  { value: 40, suffix: "+", label: "Senior engineers, avg. 9 years experience" },
-];
-
 export default function Manifesto() {
   const textRef = useRef<HTMLParagraphElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
 
   // light up words as the paragraph scrolls through the viewport
   useEffect(() => {
@@ -41,31 +33,6 @@ export default function Manifesto() {
     };
   }, []);
 
-  // count stats up once
-  useEffect(() => {
-    const root = statsRef.current;
-    if (!root) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (!e.isIntersecting) return;
-        io.disconnect();
-        root.querySelectorAll<HTMLElement>("[data-count]").forEach((node) => {
-          const end = Number(node.dataset.count);
-          const start = performance.now();
-          const step = (now: number) => {
-            const k = Math.min((now - start) / 1600, 1);
-            node.textContent = String(Math.round(end * (1 - Math.pow(1 - k, 4))));
-            if (k < 1) requestAnimationFrame(step);
-          };
-          requestAnimationFrame(step);
-        });
-      },
-      { threshold: 0.4 },
-    );
-    io.observe(root);
-    return () => io.disconnect();
-  }, []);
-
   return (
     <section className="manifesto" id="why">
       <div className="wrap">
@@ -82,18 +49,6 @@ export default function Manifesto() {
               );
             })}
           </p>
-        </div>
-
-        <div className="stats" ref={statsRef}>
-          {stats.map((s, i) => (
-            <div className="stat reveal" key={s.label} style={{ "--d": `${i * 0.08}s` } as React.CSSProperties}>
-              <div className="stat-num">
-                <span data-count={s.value}>{s.value}</span>
-                <sup>{s.suffix}</sup>
-              </div>
-              <p>{s.label}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

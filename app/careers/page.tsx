@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Careers from "@/components/Careers";
 import Footer from "@/components/Footer";
-import { Arrow } from "@/components/Icons";
 import Nav from "@/components/Nav";
 import PageHero from "@/components/PageHero";
 import RevealObserver from "@/components/RevealObserver";
@@ -22,27 +21,23 @@ export default function CareersPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main className="careers-page">
         <PageHero
+          light
           eyebrow="Careers"
           line1="Join the"
           line2={<span className="serif">orbit.</span>}
           lede="A small, senior, fully remote team building blockchain, AI, custom software and SaaS products for clients worldwide."
-          stats={[
-            { label: "Open roles", value: "04" },
-            { label: "Countries", value: "11" },
-          ]}
         />
 
-        <div style={{ paddingTop: 60 }}>
-          <Careers />
-        </div>
+        <Careers />
 
         <section className="hiring">
           <div className="wrap">
             <h2 className="section-title reveal">
               How we <span className="serif">hire.</span>
             </h2>
+            <p className="hiring-lede reveal">When a role opens, this is the whole process. Four steps, about a week.</p>
             <ol className="hiring-steps">
               {steps.map((s, i) => (
                 <li key={s.title} className="reveal" style={{ "--d": `${i * 0.08}s` } as React.CSSProperties}>
@@ -52,17 +47,6 @@ export default function CareersPage() {
                 </li>
               ))}
             </ol>
-            <div className="pf-cta-inner reveal">
-              <p className="hiring-note">
-                Don&apos;t see your role? We&apos;re always happy to meet great engineers.
-              </p>
-              <a href="mailto:careers@eclipse.studio" className="btn">
-                careers@eclipse.studio
-                <span className="btn-dot">
-                  <Arrow />
-                </span>
-              </a>
-            </div>
           </div>
         </section>
       </main>

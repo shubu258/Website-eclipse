@@ -1,5 +1,5 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import { BOOK_CALL_HREF } from "@/components/contact";
 import Footer from "@/components/Footer";
 import { Arrow } from "@/components/Icons";
 import Nav from "@/components/Nav";
@@ -16,8 +16,9 @@ export default function PortfolioPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main className="pf-page">
         <PageHero
+          light
           eyebrow="Portfolio"
           line1="Work that"
           line2={<span className="serif">outshines.</span>}
@@ -32,12 +33,12 @@ export default function PortfolioPage() {
               <h2 className="section-title">
                 Your project <span className="serif">next?</span>
               </h2>
-              <Link href="/#book" className="btn">
+              <a href={BOOK_CALL_HREF} className="btn">
                 Book a call
                 <span className="btn-dot">
                   <Arrow />
                 </span>
-              </Link>
+              </a>
             </div>
           </div>
         </section>

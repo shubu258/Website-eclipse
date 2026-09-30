@@ -5,13 +5,14 @@ type Props = {
   line1: ReactNode;
   line2: ReactNode;
   lede: ReactNode;
-  stats?: { label: string; value: string }[];
+  /** White header for pages that sit on a white background. */
+  light?: boolean;
 };
 
-/** Dark header used by inner pages (portfolio, careers). */
-export default function PageHero({ eyebrow, line1, line2, lede, stats }: Props) {
+/** Header used by inner pages (portfolio, careers). Dark unless `light`. */
+export default function PageHero({ eyebrow, line1, line2, lede, light }: Props) {
   return (
-    <section className="page-hero">
+    <section className={light ? "page-hero light" : "page-hero"} data-nav={light ? "solid" : undefined}>
       <div className="page-hero-eclipse" aria-hidden />
       <div className="wrap">
         <span className="eyebrow hero-eyebrow">{eyebrow}</span>
@@ -25,16 +26,6 @@ export default function PageHero({ eyebrow, line1, line2, lede, stats }: Props) 
         </h1>
         <div className="page-hero-row">
           <p className="hero-lede">{lede}</p>
-          {stats && (
-            <dl className="page-hero-stats">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <dt>{s.label}</dt>
-                  <dd>{s.value}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
         </div>
       </div>
     </section>

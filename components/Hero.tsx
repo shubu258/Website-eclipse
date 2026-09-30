@@ -1,5 +1,6 @@
 import Link from "next/link";
 import EclipseScene from "./EclipseScene";
+import { BOOK_CALL_HREF } from "./contact";
 import { Arrow } from "./Icons";
 
 const practices = [
@@ -60,7 +61,7 @@ export default function Hero() {
             Blockchain, AI, custom software and SaaS, built by senior engineers who join your team in days,
             not quarters. No hiring delays, no agency overhead.
             <div className="hero-actions">
-              <a href="#book" className="btn">
+              <a href={BOOK_CALL_HREF} className="btn">
                 Book a call
                 <span className="btn-dot">
                   <Arrow />

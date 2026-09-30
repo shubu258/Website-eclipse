@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BOOK_CALL_HREF } from "./contact";
 const cols = [
   {
     title: "Practices",
@@ -15,15 +16,7 @@ const cols = [
       { label: "Why Us", href: "/#why" },
       { label: "Portfolio", href: "/portfolio" },
       { label: "Careers", href: "/careers" },
-      { label: "Book a call", href: "/#book" },
-    ],
-  },
-  {
-    title: "Elsewhere",
-    links: [
-      { label: "LinkedIn", href: "#" },
-      { label: "GitHub", href: "#" },
-      { label: "X / Twitter", href: "#" },
+      { label: "Book a call", href: BOOK_CALL_HREF },
     ],
   },
 ];
@@ -51,12 +44,6 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-          ))}
-        </div>
-
-        <div className="wordmark" aria-hidden>
-          {"eclipse".split("").map((ch, i) => (
-            <span key={i}>{ch}</span>
           ))}
         </div>
 

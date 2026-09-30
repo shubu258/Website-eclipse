@@ -84,6 +84,7 @@ export const projects: Project[] = [
     result: "3",
     resultLabel: "chains, one mandate",
     year: "2026",
+    url: "https://agentrail-delta.vercel.app/",
     art: (
       <div className="project-art art-agentrail">
         <div className="layer ar-rails" data-depth="8" />

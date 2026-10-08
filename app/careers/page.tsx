@@ -7,7 +7,7 @@ import RevealObserver from "@/components/RevealObserver";
 
 export const metadata: Metadata = {
   title: "Careers",
-  description: "Join Eclipse: remote, senior-only engineering across blockchain, AI, custom software and SaaS.",
+  description: "Join Takksh Technologies: remote, senior-only engineering across blockchain, AI, custom software and SaaS.",
 };
 
 const steps = [

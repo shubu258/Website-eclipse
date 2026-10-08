@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BOOK_CALL_HREF } from "./contact";
+import Logo from "./Logo";
 const cols = [
   {
     title: "Practices",
@@ -27,9 +28,8 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer-top">
           <div>
-            <Link href="/" className="logo">
-              <span className="logo-mark" style={{ color: "var(--cream)" }} aria-hidden />
-              ECLIPSE
+            <Link href="/" className="logo" aria-label="Takksh Technologies home">
+              <Logo />
             </Link>
             <p>Senior engineering for blockchain, AI, custom software and SaaS. Remote-first, worldwide.</p>
           </div>
@@ -48,7 +48,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} Eclipse. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Takksh Technologies. All rights reserved.</span>
           <span>Made in the dark, shipped in the light.</span>
         </div>
       </div>

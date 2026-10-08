@@ -9,7 +9,7 @@ import RevealObserver from "@/components/RevealObserver";
 
 export const metadata: Metadata = {
   title: "Portfolio",
-  description: "Blockchain, AI, custom software and SaaS products built by Eclipse.",
+  description: "Blockchain, AI, custom software and SaaS products built by Takksh Technologies.",
 };
 
 export default function PortfolioPage() {

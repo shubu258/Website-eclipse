@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
-import AnimatedFavicon from "@/components/AnimatedFavicon";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,11 +21,11 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: {
-    default: "Eclipse",
-    template: "%s | Eclipse",
+    default: "Takksh Technologies",
+    template: "%s | Takksh Technologies",
   },
   description:
-    "Eclipse is an AI-powered development partner for blockchain, AI, custom software and SaaS platforms. No hiring delays, no overheads.",
+    "Takksh Technologies is an AI-powered development partner for blockchain, AI, custom software and SaaS platforms. No hiring delays, no overheads.",
 };
 
 export const viewport: Viewport = {
@@ -41,7 +40,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body>
         {children}
-        <AnimatedFavicon />
       </body>
     </html>
   );

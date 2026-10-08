@@ -1,62 +1,95 @@
 import Link from "next/link";
-import EclipseScene from "./EclipseScene";
 import { BOOK_CALL_HREF } from "./contact";
 import { Arrow } from "./Icons";
 
-const practices = [
-  { n: "01", label: "Blockchain development", href: "#blockchain" },
-  { n: "02", label: "AI development", href: "#ai" },
-  { n: "03", label: "Custom software", href: "#custom" },
-  { n: "04", label: "SaaS platforms", href: "#saas" },
-];
+const icon = { width: 20, height: 20, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.6 };
 
-const boxes = [
-  { n: "01", title: "Blockchain", desc: "Smart contracts, dApps, L2", href: "#blockchain" },
-  { n: "02", title: "AI", desc: "Agents, RAG, automation", href: "#ai" },
-  { n: "03", title: "Custom software", desc: "Web, mobile, internal tools", href: "#custom" },
-  { n: "04", title: "SaaS", desc: "Multi-tenant, billing, scale", href: "#saas" },
+// how many pieces each card's live animation is drawn with (see .viz-* in globals.css)
+const vizParts = { chain: 4, chat: 3, code: 3, bars: 6 };
+
+const boxes: {
+  n: string;
+  title: string;
+  desc: string;
+  href: string;
+  viz: keyof typeof vizParts;
+  icon: React.ReactNode;
+}[] = [
+  {
+    n: "01",
+    title: "Blockchain",
+    desc: "Smart contracts, dApps, L2",
+    href: "#blockchain",
+    viz: "chain",
+    icon: (
+      <svg {...icon} strokeLinejoin="round">
+        <path d="M12 3 20 7.5v9L12 21l-8-4.5v-9z" />
+        <path d="M4 7.5 12 12l8-4.5M12 12v9" />
+      </svg>
+    ),
+  },
+  {
+    n: "02",
+    title: "AI",
+    desc: "Agents, RAG, automation",
+    href: "#ai",
+    viz: "chat",
+    icon: (
+      <svg {...icon} strokeLinejoin="round">
+        <path d="M12 3c.8 4.6 2.4 6.2 7 7-4.6.8-6.2 2.4-7 7-.8-4.6-2.4-6.2-7-7 4.6-.8 6.2-2.4 7-7z" />
+        <path d="M19 15.5c.3 1.6.9 2.2 2.5 2.5-1.6.3-2.2.9-2.5 2.5-.3-1.6-.9-2.2-2.5-2.5 1.6-.3 2.2-.9 2.5-2.5z" />
+      </svg>
+    ),
+  },
+  {
+    n: "03",
+    title: "Custom software",
+    desc: "Web, mobile, internal tools",
+    href: "#custom",
+    viz: "code",
+    icon: (
+      <svg {...icon} strokeLinecap="round" strokeLinejoin="round">
+        <path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14" />
+      </svg>
+    ),
+  },
+  {
+    n: "04",
+    title: "SaaS",
+    desc: "Multi-tenant, billing, scale",
+    href: "#saas",
+    viz: "bars",
+    icon: (
+      <svg {...icon} strokeLinejoin="round">
+        <path d="M12 4 21 8.5 12 13 3 8.5z" />
+        <path d="m3 12.5 9 4.5 9-4.5M3 16.5 12 21l9-4.5" />
+      </svg>
+    ),
+  },
 ];
 
 export default function Hero() {
   return (
-    <section className="hero" id="top">
-      <EclipseScene />
-      <div className="hero-vignette" />
-
-      <div className="hero-meta" aria-hidden>
-        Totality <b>—</b> 00:00:00
-        <br />
-        Obscuration <b>99.8%</b>
-        <br />
-        Engagements open · Q4 2026
-      </div>
+    <section className="hero" id="top" data-nav="solid">
+      <div className="hero-glow" aria-hidden />
 
       <div className="wrap hero-content">
-        <span className="eyebrow hero-eyebrow">Senior engineering studio</span>
-        <h1>
-          <span className="line">
-            <span style={{ "--i": 0 } as React.CSSProperties}>The only</span>
-          </span>
-          <span className="line">
-            <span style={{ "--i": 1 } as React.CSSProperties}>
-              <span className="serif">copilot</span> you will
+        <div className="hero-copy">
+          <span className="eyebrow hero-eyebrow">Senior engineering studio</span>
+          <h1>
+            <span className="line">
+              <span style={{ "--i": 0 } as React.CSSProperties}>The only</span>
             </span>
-          </span>
-          <span className="line">
-            <span style={{ "--i": 2 } as React.CSSProperties}>ever need.</span>
-          </span>
-        </h1>
+            <span className="line">
+              <span style={{ "--i": 1 } as React.CSSProperties}>
+                <span className="serif">copilot</span> you will
+              </span>
+            </span>
+            <span className="line">
+              <span style={{ "--i": 2 } as React.CSSProperties}>ever need.</span>
+            </span>
+          </h1>
 
-        <nav className="hero-boxes" aria-label="What we build">
-          {boxes.map((b, i) => (
-            <a key={b.n} href={b.href} className="hero-box" style={{ "--i": i } as React.CSSProperties}>
-              <span className="hero-box-n">{b.n}</span>
-              <strong>{b.title}</strong>
-              <span>{b.desc}</span>
-            </a>
-          ))}
-        </nav>
-        <div className="hero-row">
           <div className="hero-lede">
             Blockchain, AI, custom software and SaaS, built by senior engineers who join your team in days,
             not quarters. No hiring delays, no agency overhead.
@@ -72,16 +105,29 @@ export default function Hero() {
               </Link>
             </div>
           </div>
-
-          <nav className="hero-practices" aria-label="Practices">
-            {practices.map((p) => (
-              <a key={p.n} href={p.href}>
-                <i>{p.n}</i>
-                {p.label}
-              </a>
-            ))}
-          </nav>
         </div>
+
+        <nav className="hero-boxes" aria-label="What we build">
+          {boxes.map((b, i) => (
+            <a key={b.n} href={b.href} className="hero-box" style={{ "--i": i } as React.CSSProperties}>
+              <span className="hero-box-top">
+                <span className="hero-box-icon" aria-hidden>
+                  {b.icon}
+                </span>
+                <span className={`viz viz-${b.viz}`} aria-hidden>
+                  {Array.from({ length: vizParts[b.viz] }, (_, k) => (
+                    <i key={k} style={{ "--k": k } as React.CSSProperties} />
+                  ))}
+                </span>
+              </span>
+              <strong>{b.title}</strong>
+              <span className="hero-box-desc">{b.desc}</span>
+              <span className="hero-box-go" aria-hidden>
+                <Arrow size={14} />
+              </span>
+            </a>
+          ))}
+        </nav>
       </div>
       <div className="scroll-cue" aria-hidden />
     </section>

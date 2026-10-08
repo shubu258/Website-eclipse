@@ -7,7 +7,7 @@ import { Arrow } from "./Icons";
 const quotes = [
   {
     quote:
-      "Eclipse shipped our settlement contracts in eleven weeks, and they cleared two external audits with zero critical findings. It felt like they'd been on our team for years.",
+      "Takksh shipped our settlement contracts in eleven weeks, and they cleared two external audits with zero critical findings. It felt like they'd been on our team for years.",
     name: "Maya Richter",
     role: "CTO",
     company: "Ledgerline",
@@ -15,7 +15,7 @@ const quotes = [
   },
   {
     quote:
-      "We'd burned six months with an agency. Eclipse had an AI agent triaging our support queue in three weeks, and it's still the most reliable system we run.",
+      "We'd burned six months with an agency. Takksh had an AI agent triaging our support queue in three weeks, and it's still the most reliable system we run.",
     name: "Daniel Okafor",
     role: "VP Operations",
     company: "Brightline Retail",

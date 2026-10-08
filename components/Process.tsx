@@ -83,8 +83,8 @@ export default function Process() {
             <span className="serif">unfolds.</span>
           </h2>
           <p className="reveal">
-            Every eclipse has four contacts. So does every Eclipse project, with the same precision and nothing
-            left to chance.
+            Every Takksh project moves through the same four stages, with clear owners and nothing left to
+            chance.
           </p>
         </div>
 

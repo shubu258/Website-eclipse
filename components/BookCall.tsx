@@ -1,24 +1,50 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { BOOK_EMAIL } from "./contact";
 import { Arrow } from "./Icons";
 
 const interests = ["Blockchain development", "AI development", "Custom software", "SaaS platform", "Not sure yet"];
 
 export default function BookCall() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  // TODO: connect to your backend, form service or calendar tool
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  // sends the request to /api/book, which emails it to us
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
+    const data = new FormData(e.currentTarget);
+    setSending(true);
+    setError("");
+    try {
+      const res = await fetch("/api/book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          message: data.get("message"),
+          interests: data.getAll("interest"),
+          company: data.get("company"),
+        }),
+      });
+      if (!res.ok) {
+        const { error } = await res.json().catch(() => ({ error: "" }));
+        throw new Error(error || "Couldn't send right now. Please try again.");
+      }
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Couldn't send right now. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
     <section className="book" id="book">
       <div className="wrap">
         <div className="book-card">
-          <div className="book-eclipse" aria-hidden />
           <div className="book-copy">
             <span className="eyebrow reveal">Book a call</span>
             <h2 className="section-title reveal" style={{ marginTop: 20 }}>
@@ -33,7 +59,7 @@ export default function BookCall() {
               whether or not it&apos;s us.
             </p>
             <div className="book-contact reveal">
-              <a href="mailto:hello@eclipse.studio">hello@eclipse.studio</a>
+              <a href={`mailto:${BOOK_EMAIL}`}>{BOOK_EMAIL}</a>
               <span style={{ color: "var(--muted-dark)" }}>Replies within one business day</span>
             </div>
           </div>
@@ -71,8 +97,15 @@ export default function BookCall() {
                 <span className="lbl">Tell us a little</span>
                 <textarea name="message" rows={3} placeholder="Timeline, team size, what's blocking you…" />
               </label>
-              <button type="submit" className="btn">
-                Request a call
+              {/* honeypot: hidden from people, tempting to bots */}
+              <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hp" aria-hidden />
+              {error && (
+                <p className="form-error" role="alert">
+                  {error}
+                </p>
+              )}
+              <button type="submit" className="btn" disabled={sending}>
+                {sending ? "Sending…" : "Request a call"}
                 <span className="btn-dot">
                   <Arrow />
                 </span>

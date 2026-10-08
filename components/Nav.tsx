@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { BOOK_CALL_HREF } from "./contact";
+import { BOOK_CALL_HREF, BOOK_EMAIL } from "./contact";
 import { Chevron } from "./Icons";
+import Logo from "./Logo";
 
 const joinLinks = [
   { href: "/careers", title: "Careers", desc: "How we work and hire" },
@@ -61,9 +62,8 @@ export default function Nav() {
   return (
     <header className={cls}>
       <div className="wrap nav-inner">
-        <Link href="/" className="logo" aria-label="Eclipse home" style={{ position: "relative", zIndex: 2 }}>
-          <span className="logo-mark" aria-hidden />
-          ECLIPSE
+        <Link href="/" className="logo" aria-label="Takksh Technologies home" style={{ position: "relative", zIndex: 2 }}>
+          <Logo />
         </Link>
 
         <nav aria-label="Main">
@@ -123,7 +123,7 @@ export default function Nav() {
             ))}
           </ul>
           <p className="mono" style={{ fontSize: 13, color: "var(--muted-dark)" }}>
-            hello@eclipse.studio
+            {BOOK_EMAIL}
           </p>
         </div>
       </div>

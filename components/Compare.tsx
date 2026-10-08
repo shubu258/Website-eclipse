@@ -27,7 +27,7 @@ const rows = [
 
 export default function Compare() {
   return (
-    <section className="compare" id="compare">
+    <section className="compare" id="why">
       <div className="wrap">
         <div className="compare-head reveal">
           <h2 className="section-title">
@@ -39,7 +39,7 @@ export default function Compare() {
         </div>
 
         <div className="compare-scroll">
-          <div className="ctable" role="table" aria-label="Eclipse compared with alternatives">
+          <div className="ctable" role="table" aria-label="Takksh compared with alternatives">
             <div className="crow crow-head" role="row">
               <div role="columnheader">Option</div>
               {cols.map((c) => (
@@ -53,7 +53,7 @@ export default function Compare() {
               <div role="cell">
                 <h4>
                   <span className="logo-mark" style={{ width: 22, height: 22, color: "var(--orange-2)" }} aria-hidden />
-                  Eclipse
+                  Takksh
                 </h4>
                 <p>
                   Senior engineers ready to deploy, with instant scalability, premium quality and competitive

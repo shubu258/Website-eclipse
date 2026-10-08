@@ -2,7 +2,6 @@ import BookCall from "@/components/BookCall";
 import Compare from "@/components/Compare";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Manifesto from "@/components/Manifesto";
 import Marquee from "@/components/Marquee";
 import Nav from "@/components/Nav";
 import Process from "@/components/Process";
@@ -17,7 +16,6 @@ export default function Home() {
       <main className="home">
         <Hero />
         <Marquee />
-        <Manifesto />
         <Services />
         <Process />
         <Compare />

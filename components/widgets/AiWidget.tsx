@@ -47,7 +47,7 @@ export default function AiWidget() {
     <div className="widget" ref={ref}>
       <div className="ai-window" aria-live="off">
         <div className="ai-head">
-          <span>eclipse-agent · v4</span>
+          <span>takksh-agent · v4</span>
           <span style={{ display: "flex", gap: 10, alignItems: "center" }}>
             {done ? "done" : `${38 + (shown % 7)} tok/s`}
             <span className="ai-meter" aria-hidden>

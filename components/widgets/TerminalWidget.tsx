@@ -6,7 +6,7 @@ import { useInView, useInterval } from "../hooks";
 type Line = { text: string; cls?: string };
 
 const script: Line[] = [
-  { text: "$ eclipse release v2.14 --env production", cls: "t-acc" },
+  { text: "$ takksh release v2.14 --env production", cls: "t-acc" },
   { text: "› type-check ............... ok", cls: "t-dim" },
   { text: "› 1,284 tests passed  (0 failed)", cls: "t-ok" },
   { text: "› building web, api, billing-worker", cls: "t-dim" },

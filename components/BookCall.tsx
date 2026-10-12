@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { BOOK_EMAIL } from "./contact";
 import { Arrow } from "./Icons";
 
 const interests = ["Blockchain development", "AI development", "Custom software", "SaaS platform", "Not sure yet"];
@@ -59,7 +58,7 @@ export default function BookCall() {
               whether or not it&apos;s us.
             </p>
             <div className="book-contact reveal">
-              <a href={`mailto:${BOOK_EMAIL}`}>{BOOK_EMAIL}</a>
+              <a href="mailto:saurabh@takksh.com">saurabh@takksh.com</a>
               <span style={{ color: "var(--muted-dark)" }}>Replies within one business day</span>
             </div>
           </div>
